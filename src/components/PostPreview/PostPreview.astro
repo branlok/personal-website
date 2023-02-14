@@ -1,0 +1,63 @@
+---
+import Calendar from "../Calendar/Calendar.astro";
+export type PostPreview = {
+    title: string;
+    description: string;
+    publishedOn: string;
+    href: string;
+};
+
+const { title, description, publishedOn, href } = Astro.props;
+---
+
+<article>
+    <div class="post-left">
+        <h1>{title}</h1>
+        <h2>{description}</h2>
+        <span>3,231 words</span>
+    </div>
+    <div class="post-right">
+        <Calendar year="2023" month="feb" day="23" />
+    </div>
+</article>
+
+<style>
+    article {
+        color: white;
+        background-color: black;
+        border: 1px solid rgb(53, 53, 53);
+        border-bottom: 5px solid rgb(53, 53, 53);
+        padding: 10px;
+        display: flex;
+        height: 85px;
+        margin-bottom: 5px;
+        transition: 0.2s;
+        &:hover {
+            background-color: rgba(13, 13, 13);
+            border: 1px solid white;
+            border-bottom: 5px solid white;
+            transform: translateY(-2px);
+        }
+        & .post-left {
+            width: 70%;
+            padding: 5px;
+            & h1 {
+                font-size: var(--base);
+            }
+            & h2 {
+                font-size: var(--sm);
+                color: grey;
+                font-weight: normal;
+            }
+            & span {
+                margin: 0px;
+                padding: 0px;
+                font-size: var(--xs);
+            }
+        }
+        & .post-right {
+            width: 30%;
+            padding: 5px;
+        }
+    }
+</style>

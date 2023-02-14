@@ -1,15 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import PostPreview from "../components/PostPreview/PostPreview.astro";
+import Profile from "../components/Profile/Profile.astro";
+import ProjectCollection from "../components/ProjectCollection/ProjectCollection.astro";
+
+let placeholder = [
+    {
+        title: "This is atitle",
+        description: "this is adescription",
+    },
+];
 ---
 
 <Layout title="Welcome to Astro.">
     <main>
         <div class="header"></div>
-        <div class="profile-wrapper"></div>
+        <div class="profile-wrapper">
+            <Profile />
+        </div>
         <div class="content">
-            <div class="project-wrapper"></div>
-            <div class="blog-posts-wrapper"></div>
+            <div class="project-wrapper">
+                <ProjectCollection />
+            </div>
+            <h1>Recent Blog Entries</h1>
+            <div class="blog-posts-wrapper">
+                <PostPreview title="This is a demo post" description="demo description" />
+                <PostPreview title="This is a demo post" description="demo description" />
+                <PostPreview title="This is a demo post" description="demo description" />
+            </div>
             <div class="random-facts-wrapper"></div>
         </div>
     </main>
@@ -17,9 +35,39 @@ import Card from "../components/Card.astro";
 
 <style>
     main {
-        width: 400px;
+        width: 450px;
         background-color: black;
         display: flex;
         flex-direction: column;
+        /* height: auto; */
+        background-color: #0d0d0d;
+        padding: 10px;
+        padding-top: 0px;
+        align-items: center;
+        background: rgb(33,33,33);
+        background: linear-gradient(180deg, rgba(33,33,33,1) 10%, rgba(33,33,33,0) 100%);
+        /* box-shadow: 0px -10px 5px 0px rgba(0,0,0,0.1); */
+    }
+    .header {
+        height: 50px;
+        flex-shrink: 0;
+        flex-grow: 1;
+        width: 95%;
+        background-color: rgb(39, 39, 39);
+        
+    }
+    .profile-wrapper {
+        padding: 10px;
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+        padding: 10px;
+    }
+    h1 {
+        color: white;
+        font-size: var(--lg);
+        padding: 10px;
+        margin: 0px;
     }
 </style>

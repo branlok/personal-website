@@ -1,0 +1,82 @@
+---
+import ProjectBlock from "../ProjectBlock/ProjectBlock.astro";
+
+let placeholder = [
+    {
+        image: "https://picsum.photos/900/410",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/600/203",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/500/400",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/400/120",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/200/320",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/200/100",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/200/330",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/200/250",
+        link: "",
+        title: "",
+    },
+    {
+        image: "https://picsum.photos/200/200",
+        link: "",
+        title: "",
+    },
+];
+---
+
+<div class="project-collection">
+    <header>
+        <h1>Project Gallery</h1>
+        <nav></nav>
+    </header>
+    <div class="gallery-wrapper">
+        {placeholder.map((item) => <ProjectBlock imageUrl={item.image} />)}
+    </div>
+</div>
+
+<style>
+    .project-collection {
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        height: 30px;
+        & h1 {
+            font-size: var(--lg);
+            color: white;
+        }
+    }
+    .gallery-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        box-sizing: border-box;
+    }
+</style>
